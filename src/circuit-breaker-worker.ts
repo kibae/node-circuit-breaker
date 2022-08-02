@@ -1,4 +1,4 @@
-import { isMainThread, Worker, BroadcastChannel } from 'node:worker_threads';
+import { isMainThread, Worker, BroadcastChannel } from 'worker_threads';
 
 enum CircuitBreakerState {
     Closed,
