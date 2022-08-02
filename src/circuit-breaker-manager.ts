@@ -1,4 +1,4 @@
-import * as path from 'node:path';
+import * as path from 'path';
 import { CircuitBreakerOptions } from './decorators/circuit-breaker.decorator';
 import { ExecutionTimeoutError } from './exceptions/execution-timeout-error';
 import { AxiosExceptionPipe } from './exceptions/axios-extended-error';
