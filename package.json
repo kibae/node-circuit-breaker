@@ -20,8 +20,11 @@
     "Circuit",
     "Breaker",
     "Fast Fail",
+    "Decorator",
     "hystrix",
-    "Decorator"
+    "resilience4j",
+    "nodejs",
+    "typescript"
   ],
   "author": "Kibae Shin <kibae.shin@gmail.com>",
   "license": "MIT",
