@@ -5,12 +5,7 @@ import { AxiosExceptionPipe } from './exceptions/axios-extended-error';
 import { TypeormExceptionPipe } from './exceptions/typeorm-extended-error';
 import { CircuitBreakerScope, CircuitBreakerState } from './types/circuit.type';
 
-let worker: any;
-try {
-    worker = require('./circuit-breaker-worker.js');
-} catch (e) {
-    worker = require('./circuit-breaker-worker.ts');
-}
+const worker = require('./circuit-breaker-worker');
 
 let seq: number = 0;
 export class Circuit {
