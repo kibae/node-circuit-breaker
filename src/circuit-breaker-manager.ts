@@ -28,8 +28,8 @@ export class Circuit {
         if (!this._serializedOptions)
             this._serializedOptions = {
                 fallbackForSeconds: this.options.fallbackForSeconds,
-                rules: this.options.exceptions.map((item) => ({
-                    types: item.types.map((errorType) => errorType.name),
+                rules: this.options.rules.map((item) => ({
+                    exceptions: item.exceptions.map((errorType) => errorType.name),
                     times: item.times,
                     inSeconds: item.inSeconds,
                 })),

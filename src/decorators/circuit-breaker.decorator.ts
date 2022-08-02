@@ -2,7 +2,7 @@ import { Circuit, CircuitBreakerManager } from '../circuit-breaker-manager';
 import { CircuitBreakerScope } from '../types/circuit.type';
 
 export interface CircuitBreakerRule {
-    types: Array<typeof Error | any>;
+    exceptions: Array<typeof Error | any>;
     // thrown
     times: number;
     inSeconds: number;
@@ -18,7 +18,7 @@ export interface CircuitBreakerOptions {
     onCircuitClose?: (circuit: Circuit) => Promise<boolean>;
 
     timeoutMilliSeconds?: number;
-    exceptions: CircuitBreakerRule[];
+    rules: CircuitBreakerRule[];
 
     fallbackForSeconds: number;
 }
@@ -27,7 +27,7 @@ export function CircuitBreaker(options: CircuitBreakerOptions): MethodDecorator 
     options.timeoutMilliSeconds = options.timeoutMilliSeconds || 0;
 
     return function (target: Object, propertyKey: string | symbol, descriptor: PropertyDescriptor): PropertyDescriptor | void {
-        if (options.exceptions.length <= 0)
+        if (options.rules.length <= 0)
             throw new Error(`CircuitBreaker: [${target.constructor.name}.${propertyKey.toString()}] Rule(timeoutMs, exceptions) is empty.`);
 
         const func = descriptor.value;

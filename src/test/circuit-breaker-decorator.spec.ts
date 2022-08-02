@@ -15,7 +15,7 @@ class Test {
     @CircuitBreaker({
         // scope: CircuitBreakerScope.INSTANCE,
         fallback: 'test1Fallback',
-        exceptions: [{ types: [BadGatewayException], times: 10, inSeconds: 1 }],
+        rules: [{ exceptions: [BadGatewayException], times: 10, inSeconds: 1 }],
         fallbackForSeconds: 1,
     })
     test1(arg: string) {
@@ -30,7 +30,7 @@ class Test {
     @CircuitBreaker({
         scope: CircuitBreakerScope.INSTANCE,
         fallback: TestFallback.test2,
-        exceptions: [{ types: [BadGatewayException], times: 10, inSeconds: 1 }],
+        rules: [{ exceptions: [BadGatewayException], times: 10, inSeconds: 1 }],
         fallbackForSeconds: 1,
     })
     test2(arg: string) {

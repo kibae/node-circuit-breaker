@@ -80,7 +80,7 @@ if (isMainThread) {
             id: string;
             fallbackForSeconds: number;
             rules: Array<{
-                types: string[];
+                exceptions: string[];
                 times: number;
                 inSeconds: number;
             }>;
@@ -109,7 +109,7 @@ if (isMainThread) {
             meta.rules.some((rule) => {
                 const time = Date.now() - Math.max(rule.inSeconds) * 1000;
 
-                const filtered = records.filter((record) => rule.types.includes(record.error) && record.time >= time);
+                const filtered = records.filter((record) => rule.exceptions.includes(record.error) && record.time >= time);
                 return rule.times <= filtered.length;
             })
         ) {
