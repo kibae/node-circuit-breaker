@@ -1,6 +1,4 @@
 // dummy
-import { HttpErrorByCode } from '@nestjs/common/utils/http-error-by-code.util';
-
 class AxiosErrorLike<T = unknown, D = any> extends Error {
     config!: any;
     code?: string;
