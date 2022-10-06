@@ -7,21 +7,21 @@ describe('AxiosExtendedError', () => {
         try {
             await Axios.get('https://httpstat.us/404');
         } catch (e) {
-            expect(AxiosExceptionPipe(e as Error).constructor).toBe(NotFoundException);
+            expect(AxiosExceptionPipe(e)).toBeInstanceOf(NotFoundException);
         }
     });
     it('502 error', async () => {
         try {
             await Axios.get('https://httpstat.us/502');
         } catch (e) {
-            expect(AxiosExceptionPipe(e as Error).constructor).toBe(BadGatewayException);
+            expect(AxiosExceptionPipe(e)).toBeInstanceOf(BadGatewayException);
         }
     });
     it('Timeout error', async () => {
         try {
             await Axios.get('https://httpstat.us/200?sleep=3000', { timeout: 1000 });
         } catch (e) {
-            expect(AxiosExceptionPipe(e as Error).constructor).toBe(RequestTimeoutException);
+            expect(AxiosExceptionPipe(e)).toBeInstanceOf(RequestTimeoutException);
         }
     });
 });

@@ -5,8 +5,12 @@ import { ObjectUtils } from 'typeorm/util/ObjectUtils';
 describe('TypeormExtendedError', () => {
     it('Normal? error', async () => {
         const error = TypeormExceptionPipe(new Error('Normal? error'));
-        expect(error.constructor).toBe(Error);
-        expect(error.message).toBe('Normal? error');
+        expect(error).toBeInstanceOf(Error);
+        if (error instanceof Error) {
+            expect(error.message).toBe('Normal? error');
+        } else {
+            throw new Error('cannot occur');
+        }
     });
 
     it('Normal? QueryFailedError', async () => {
@@ -22,7 +26,7 @@ describe('TypeormExtendedError', () => {
             routine: 'parserOpenTable',
         });
         const error = TypeormExceptionPipe(new QueryFailedError(`SELECT * FROM NOT_EXISTS_TABLE`, undefined, driverError));
-        expect(error.constructor).toBe(QueryFailedError);
+        expect(error).toBeInstanceOf(QueryFailedError);
         expect(error instanceof QueryFailedError).toBeTruthy();
     });
 
@@ -38,7 +42,7 @@ describe('TypeormExtendedError', () => {
             routine: 'ProcessInterrupts',
         });
         const error = TypeormExceptionPipe(new QueryFailedError(`SELECT pg_sleep(10)`, undefined, driverError));
-        expect(error.constructor).toBe(TypeormConnectionFailedError);
+        expect(error).toBeInstanceOf(TypeormConnectionFailedError);
         expect(error instanceof TypeormConnectionFailedError).toBeTruthy();
         expect(error instanceof QueryFailedError).toBeTruthy();
     });
@@ -46,7 +50,7 @@ describe('TypeormExtendedError', () => {
     it('Timeout error', async () => {
         const driverError = new Error('Query read timeout');
         const error = TypeormExceptionPipe(new QueryFailedError(`SELECT pg_sleep(10)`, undefined, driverError));
-        expect(error.constructor).toBe(TypeormQueryTimeoutError);
+        expect(error).toBeInstanceOf(TypeormQueryTimeoutError);
         expect(error instanceof TypeormQueryTimeoutError).toBeTruthy();
         expect(error instanceof QueryFailedError).toBeTruthy();
     });

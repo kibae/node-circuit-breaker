@@ -15,7 +15,7 @@ export class Circuit {
 
     state: CircuitBreakerState = CircuitBreakerState.Closed;
 
-    public static exceptionPipes: Array<(e: Error) => Error> = [AxiosExceptionPipe, TypeormExceptionPipe];
+    public static exceptionPipes: Array<(e: unknown) => unknown> = [AxiosExceptionPipe, TypeormExceptionPipe];
 
     constructor(caller: string, funcName: string, options: CircuitBreakerOptions) {
         this.id = (++seq).toString();
