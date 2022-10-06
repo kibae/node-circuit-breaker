@@ -18,8 +18,10 @@ try {
 export class TypeormConnectionFailedError extends TypeormQueryFailedError {}
 export class TypeormQueryTimeoutError extends TypeormQueryFailedError {}
 
-export const TypeormExceptionPipe = (e: Error): Error => {
-    if (!(e instanceof TypeormQueryFailedError)) return e;
+export const TypeormExceptionPipe = (e: unknown): unknown => {
+    if (!(e instanceof TypeormQueryFailedError)) {
+        return e;
+    }
     const error: TypeormQueryFailedErrorLike = e;
 
     const driverError: string = (error as any).driverError?.toString();
