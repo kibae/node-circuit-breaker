@@ -1,6 +1,6 @@
 {
   "name": "node-circuit-breaker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Circuit Breaker: Decorators and tools that can easily apply the Circuit Breaker pattern.",
   "homepage": "https://github.com/kibae/node-circuit-breaker",
   "repository": {
@@ -13,7 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "tsc -p tsconfig.build.json",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "rm -rf dist/* ; npm run build && npm publish --access public"
   },
   "keywords": [
     "Circuit Breaker",
