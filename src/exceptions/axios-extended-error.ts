@@ -63,7 +63,7 @@ try {
     };
 } catch (e) {}
 
-export const AxiosExceptionPipe = (e: Error): Error => {
+export const AxiosExceptionPipe = (e: unknown): unknown => {
     if (!(e instanceof axiosErrorLike)) return e;
     const error: AxiosErrorLike = e;
 
