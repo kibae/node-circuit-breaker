@@ -30,7 +30,7 @@ jobs:
     - run: npm run build
     - run: cp dist/circuit-breaker-worker.js src/
     - run: npm test
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: success() || failure()
       with:
         name: test-results
