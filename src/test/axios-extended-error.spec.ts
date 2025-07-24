@@ -5,21 +5,21 @@ import { BadGatewayException, NotFoundException, RequestTimeoutException } from 
 describe('AxiosExtendedError', () => {
     it('404 error', async () => {
         try {
-            await Axios.get('https://httpstat.us/404');
+            await Axios.get('https://http.cat/404');
         } catch (e) {
             expect(AxiosExceptionPipe(e)).toBeInstanceOf(NotFoundException);
         }
     });
     it('502 error', async () => {
         try {
-            await Axios.get('https://httpstat.us/502');
+            await Axios.get('https://http.cat/502');
         } catch (e) {
             expect(AxiosExceptionPipe(e)).toBeInstanceOf(BadGatewayException);
         }
     });
     it('Timeout error', async () => {
         try {
-            await Axios.get('https://httpstat.us/200?sleep=3000', { timeout: 1000 });
+            await Axios.get('https://http.cat/200?sleep=3000', { timeout: 1000 });
         } catch (e) {
             expect(AxiosExceptionPipe(e)).toBeInstanceOf(RequestTimeoutException);
         }
