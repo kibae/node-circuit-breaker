@@ -3,9 +3,14 @@
 - **Node version >= 16**
   - Depends on worker thread and BroadcastChannel.
 
-[![Node.js CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/node.js.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/node.js.yml)
 [![NPM Version](https://badge.fury.io/js/node-circuit-breaker.svg)](https://www.npmjs.com/package/node-circuit-breaker)
 [![License](https://img.shields.io/github/license/kibae/node-circuit-breaker)](https://github.com/kibae/node-circuit-breaker/blob/main/LICENSE)
+----
+[![Node.js(16) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs16.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs16.yml)
+[![Node.js(18) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs18.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs18.yml)
+[![Node.js(20) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs20.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs20.yml)
+[![Node.js(22) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs22.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs22.yml)
+[![Node.js(24) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs24.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs24.yml)
 
 ## Install
 - NPM
