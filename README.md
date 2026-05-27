@@ -11,6 +11,7 @@
 [![Node.js(20) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs20.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs20.yml)
 [![Node.js(22) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs22.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs22.yml)
 [![Node.js(24) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs24.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs24.yml)
+[![Node.js(26) CI](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs26.yml/badge.svg)](https://github.com/kibae/node-circuit-breaker/actions/workflows/nodejs26.yml)
 
 ## Install
 - NPM
