@@ -10,6 +10,9 @@ jobs:
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
     runs-on: ubuntu-latest
     environment: github action
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -20,6 +23,9 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Upgrade npm (Trusted Publishing requires npm >= 11.5.1)
+        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: npm ci
@@ -41,8 +47,6 @@ jobs:
 
       - name: Publish to NPM
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create tag
         run: |
@@ -52,13 +56,3 @@ jobs:
           git push origin "v${{ steps.package_version.outputs.version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: "v${{ steps.package_version.outputs.version }}"
-          release_name: "v${{ steps.package_version.outputs.version }}"
-          draft: true
-          prerelease: false
